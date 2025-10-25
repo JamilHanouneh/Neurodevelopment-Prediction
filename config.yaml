@@ -1,0 +1,108 @@
+# Configuration for the neurodevelopment prediction pipeline
+
+project:
+  name: neurodevelopment_prediction
+  version: "1.0.0"
+  seed: 42
+  logging_level: INFO
+
+data:
+  raw_dir: data/raw/zenodo_infants
+  processed_dir: data/processed
+  features_dir: data/processed/features
+  aggregated_features: data/processed/preprocessed_features.csv
+  master_features: data/processed/master_features.csv
+  feature_catalog: data/processed/feature_catalog.json
+  meta_filename: meta.csv
+  atlas_dir: data/raw/zenodo_infants/atlas
+  subject_prefix: s
+  max_subjects: null          # Set to an integer to limit processing during development
+  allowed_extensions:
+    - .nii
+    - .nii.gz
+
+preprocessing:
+  intensity_clip_percentiles: [1, 99]
+  smoothing_sigma: 0.5
+  min_brain_threshold: 0.05
+  kmeans_repeats: 3
+  kmeans_clusters: 3
+  regional_grid: [2, 2, 2]
+  save_normalized_volumes: false
+
+features:
+  clinical:
+    categorical:
+      - diagnosis
+      - group
+    numerical:
+      - age
+      - age_corrected
+      - doctor_predicted_age
+  proxy_scores:
+    baseline:
+      delayed: 75
+      normal: 95
+      accelerated: 110
+    age_scale: 0.35
+    noise_std: 5.0
+  target_variables:
+    - cognitive_score
+    - motor_score
+    - language_score
+
+models:
+  test_size: 0.2
+  cv_folds: 5
+  n_jobs: -1
+  feature_sets:
+    - volumetric
+    - morphometric
+    - clinical
+    - combined
+  algorithms:
+    ridge:
+      type: ridge
+      param_grid:
+        alpha: [0.1, 1.0, 10.0, 50.0]
+    random_forest:
+      type: random_forest
+      param_grid:
+        n_estimators: [200, 400]
+        max_depth: [10, 20, null]
+        min_samples_split: [2, 5]
+    gradient_boosting:
+      type: gradient_boosting
+      param_grid:
+        n_estimators: [200, 400]
+        learning_rate: [0.03, 0.1]
+        max_depth: [2, 3]
+    xgboost:
+      type: xgboost
+      param_grid:
+        n_estimators: [300, 500]
+        learning_rate: [0.05, 0.1]
+        max_depth: [3, 5]
+        subsample: [0.7, 1.0]
+
+evaluation:
+  metrics:
+    - rmse
+    - mae
+    - r2
+    - explained_variance
+
+visualization:
+  figure_dpi: 300
+  top_features: 15
+  scatter_alpha: 0.7
+  color_palette: ["#4477AA", "#66CCEE", "#228833", "#CCBB44"]
+
+vscode:
+  pythonPath: .venv/Scripts/python.exe
+
+outputs:
+  figures_dir: outputs/figures
+  tables_dir: outputs/tables
+  models_dir: outputs/models
+  results_dir: outputs/results

@@ -1,0 +1,35 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Preprocess MRIs",
+      "type": "shell",
+      "command": "python -m src.data.preprocess",
+      "problemMatcher": []
+    },
+    {
+      "label": "Build Feature Table",
+      "type": "shell",
+      "command": "python -m src.data.feature_extraction",
+      "problemMatcher": []
+    },
+    {
+      "label": "Train Models",
+      "type": "shell",
+      "command": "python -m src.models.train",
+      "problemMatcher": []
+    },
+    {
+      "label": "Predict (update path)",
+      "type": "shell",
+      "command": "python -m src.models.predict --model-path outputs/models/cognitive_score_combined_random_forest_model.pkl",
+      "problemMatcher": []
+    },
+    {
+      "label": "Generate Visualizations",
+      "type": "shell",
+      "command": "python -m src.visualization.plots",
+      "problemMatcher": []
+    }
+  ]
+}

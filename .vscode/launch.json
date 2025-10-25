@@ -1,0 +1,48 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Step 1 - Preprocess MRIs",
+      "type": "python",
+      "request": "launch",
+      "module": "src.data.preprocess",
+      "console": "integratedTerminal",
+      "args": []
+    },
+    {
+      "name": "Step 2 - Build Feature Table",
+      "type": "python",
+      "request": "launch",
+      "module": "src.data.feature_extraction",
+      "console": "integratedTerminal",
+      "args": []
+    },
+    {
+      "name": "Step 3 - Train Models",
+      "type": "python",
+      "request": "launch",
+      "module": "src.models.train",
+      "console": "integratedTerminal",
+      "args": []
+    },
+    {
+      "name": "Step 4 - Predict with Saved Model",
+      "type": "python",
+      "request": "launch",
+      "module": "src.models.predict",
+      "console": "integratedTerminal",
+      "args": [
+        "--model-path",
+        "outputs/models/cognitive_score_combined_random_forest_model.pkl"
+      ]
+    },
+    {
+      "name": "Step 5 - Generate Visualizations",
+      "type": "python",
+      "request": "launch",
+      "module": "src.visualization.plots",
+      "console": "integratedTerminal",
+      "args": []
+    }
+  ]
+}
