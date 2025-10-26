@@ -6,6 +6,9 @@ A Python machine learning pipeline for predicting neurodevelopmental outcomes in
 ![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
 ![GitHub stars](https://img.shields.io/github/stars/JamilHanouneh/Neurodevelopment-Prediction)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=flat&logo=scikit-learn&logoColor=white)
+![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=flat&logo=numpy&logoColor=white)
+![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=flat&logo=pandas&logoColor=white)
+![XGBoost](https://img.shields.io/badge/XGBoost-FF6600?style=flat&logo=xgboost&logoColor=white)
 ## Overview
 
 This repository contains a complete Python-based machine learning pipeline for predicting neurodevelopmental outcomes (cognitive, motor, and language scores) in infants using structural brain MRI features (T1w and T2w scans). It is inspired by research on preterm infant neurodevelopment and uses volumetric/morphometric features combined with clinical metadata.
