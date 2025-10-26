@@ -1,5 +1,15 @@
 # Neurodevelopment-Prediction
 A Python machine learning pipeline for predicting neurodevelopmental outcomes in infants using structural brain MRI features from the Zenodo Infant Brain MRI Dataset. Includes preprocessing, feature extraction, model training, and visualizations. Dataset not included—download from Zenodo.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
+![GitHub stars](https://img.shields.io/github/stars/JamilHanouneh/Neurodevelopment-Prediction)
+![GitHub forks](https://img.shields.io/github/forks/JamilHanouneh/Neurodevelopment-Prediction)
+![GitHub issues](https://img.shields.io/github/issues/JamilHanouneh/Neurodevelopment-Prediction)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=flat&logo=scikit-learn&logoColor=white)
+![XGBoost](https://img.shields.io/badge/XGBoost-FF6600?style=flat&logo=xgboost&logoColor=white)
+![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=flat&logo=numpy&logoColor=white)
+![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=flat&logo=pandas&logoColor=white)
+![VSCode](https://img.shields.io/badge/VSCode-007ACC?style=flat&logo=visual-studio-code&logoColor=white)
 
 # NeuroDevPredict: Predicting Infant Neurodevelopmental Outcomes from Structural Brain MRI and Myelinisation Status Using Machine Learning
 
